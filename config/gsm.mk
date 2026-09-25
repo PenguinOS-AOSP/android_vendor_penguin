@@ -1,6 +1,6 @@
-# Pixel APNs
+# APNs
 PRODUCT_COPY_FILES += \
-    vendor/penguin/telephony/apns-full-conf.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/apns-conf.xml
+    vendor/penguin/target/config/apns-conf.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/apns-conf.xml
 
 # SIM Toolkit
 PRODUCT_PACKAGES += \

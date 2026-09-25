@@ -1,0 +1,31 @@
+# DC Dimming
+type dc_dimming_service, system_api_service, system_server_service, service_manager_type;
+
+# Pocket Judge
+
+# Lineage
+
+# PIH
+type pih_manager_service, app_api_service, system_api_service, system_server_service, service_manager_type;
+
+# Game space
+type game_space_service, system_api_service, system_server_service, service_manager_type;
+
+# Obscura
+type obscura_service, system_api_service, system_server_service, service_manager_type;
+
+# PowerInsight
+type power_insight_service, system_api_service, system_server_service, service_manager_type;
+
+# Freeform
+type lmo_freeform_service, system_api_service, system_server_service, service_manager_type;
+
+# Refresh Rate Manager
+type refresh_rate_manager_service, system_api_service, system_server_service, service_manager_type;
+
+# Linearmotor Vibrator
+type linearmotor_vibrator_service, system_api_service, system_server_service, service_manager_type;
+
+
+
+

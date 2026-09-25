@@ -5,4 +5,5 @@ PRODUCT_SOONG_NAMESPACES += \
 endif #TARGET_USE_QTI_BT_STACK
 
 include device/statix/sepolicy/common/sepolicy.mk
+include vendor/penguin/sepolicy/sepolicy.mk
 include vendor/penguin/config/BoardConfigSoong.mk

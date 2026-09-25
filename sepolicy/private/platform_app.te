@@ -1,0 +1,22 @@
+binder_use(platform_app)
+
+# Allow PowerShare HAL service to be found
+hal_client_domain(platform_app, hal_aospa_powershare)
+
+# Allow LineageHealth HAL service to be found
+hal_client_domain(platform_app, hal_lineage_health)
+
+# Obscura
+allow platform_app obscura_service:service_manager find;
+allow platform_app system_data_file:dir r_dir_perms;
+allow platform_app system_data_file:file r_file_perms;
+allow platform_app system_userdir_file:dir r_dir_perms;
+allow platform_app system_userdir_file:file r_file_perms;
+
+# PowerInsight
+allow platform_app power_insight_service:service_manager find;
+
+
+# Keystore compatibility
+allow platform_app keystore_compat_data_file:dir create_dir_perms;
+allow platform_app keystore_compat_data_file:file create_file_perms;

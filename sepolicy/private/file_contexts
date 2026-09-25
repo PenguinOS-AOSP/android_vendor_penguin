@@ -1,0 +1,8 @@
+# Updater
+/data/penguinos_updates(/.*)?     u:object_r:ota_package_file:s0
+
+# Pocket Judge
+
+# Keystore compatibility
+/data/system/keystore_compat(/.*)?          u:object_r:keystore_compat_data_file:s0
+/data/system/tee_simulator(/.*)?            u:object_r:keystore_compat_data_file:s0

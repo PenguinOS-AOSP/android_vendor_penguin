@@ -12,18 +12,17 @@ ifeq ($(PRODUCT_USES_QCOM_HARDWARE), true)
 include hardware/qcom-caf/common/build/core/ProductConfigQcom.mk
 endif
 
-# Define some properties for GMS
+# Google - GMS, Pixel, and Mainline Modules
 ifneq ($(TARGET_DOES_NOT_USE_GAPPS), true)
 $(call inherit-product-if-exists, vendor/gms/products/gms.mk)
+$(call inherit-product-if-exists, vendor/gms/common/common-vendor.mk)
+$(call inherit-product-if-exists, vendor/google/pixel/config.mk)
 # Anything including updatable_apex.mk should have done so by now.
 ifeq ($(TARGET_FLATTEN_APEX), false)
 $(call inherit-product-if-exists, vendor/partner_modules/build/mainline_modules.mk)
 else
 $(call inherit-product-if-exists, vendor/partner_modules/build/mainline_modules_flatten_apex.mk)
 endif
-# Enable certified props overlay
-PRODUCT_COPY_FILES += \
-    vendor/penguin/prebuilt/etc/overlay/config-system_ext.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/overlay/config/config.xml
 endif
 
 ifeq ($(PRODUCT_GMS_CLIENTID_BASE),)
@@ -47,16 +46,6 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     persist.sys.disable_rescue=true \
     ro.build.selinux=1
 
-# Make some features conditional
-ifeq ($(ENABLE_GAMETOOLS), true)
-PRODUCT_COPY_FILES += \
-    vendor/penguin/prebuilt/etc/sysconfig/game_service.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/game_service.xml
-endif
-ifneq ($(DISABLE_COLUMBUS), true)
-PRODUCT_COPY_FILES += \
-    vendor/penguin/prebuilt/etc/sysconfig/quick_tap.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/quick_tap.xml
-endif
-
 # Lineage interfaces
 PRODUCT_PACKAGES += \
     framework_compatibility_matrix.lineage.xml
@@ -73,17 +62,12 @@ PRODUCT_PRODUCT_PROPERTIES += \
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.support_one_handed_mode?=true
 
-# Copy over some StatiX assets
+# Copy over some Penguin assets
 PRODUCT_COPY_FILES += \
     vendor/penguin/prebuilt/etc/init.penguin.rc:system/etc/init/init.penguin.rc \
     vendor/penguin/prebuilt/etc/permissions/privapp-permissions-penguin-product.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-penguin-product.xml \
     vendor/penguin/prebuilt/etc/permissions/privapp-permissions-penguin-se.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permissions-penguin-se.xml
 
-# Set on-device compilation mode for SystemUI.
-ifeq ($(TARGET_BUILD_VARIANT),user)
-PRODUCT_PROPERTY_OVERRIDES += \
-    dalvik.vm.systemuicompilerfilter=speed-profile
-endif
 
 # Packages
 include vendor/penguin/config/packages.mk
@@ -91,15 +75,8 @@ include vendor/penguin/config/packages.mk
 # Branding
 include vendor/penguin/config/branding.mk
 
-# Bootanimation
-include vendor/penguin/config/bootanimation.mk
-
-# Fonts
-include vendor/penguin/config/fonts.mk
-
-# Overlays
-PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/penguin/overlay
-DEVICE_PACKAGE_OVERLAYS += vendor/penguin/overlay/common
+# PenguinOS product configuration
+include vendor/penguin/config/penguin.mk
 
 # Artifact path requirements
 PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \

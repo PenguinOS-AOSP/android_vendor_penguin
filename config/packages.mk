@@ -10,70 +10,12 @@ PRODUCT_PACKAGES += \
 
 # TFLite service.
 PRODUCT_PACKAGES += libtensorflowlite_jni
-// PRODUCT_PACKAGES += libtensorflowlite_jni_gms_client
-
-# Penguin Packages
-PRODUCT_PACKAGES += \
-    StatiXOSWalls \
-    QuickAccessWallet
-
-# Ambient-Music
-PRODUCT_PACKAGES += \
-    Ambient-Music
 
 # APEX
 DISABLE_DEXPREOPT_CHECK := true
 
 PRODUCT_MAINLINE_BLUETOOTH_SEPOLICY_DEV_CERTIFICATES=vendor/penguin/build/target/product/security
 PRODUCT_MAINLINE_NFC_SEPOLICY_DEV_CERTIFICATES=vendor/penguin/build/target/product/security
-
-PRODUCT_MAINLINE_SEPOLICY_DEV_CERTIFICATES=vendor/statix-prebuilts/apex/certificates
-
-PRODUCT_PACKAGES += \
-    com.google.android.cellbroadcast \
-    com.google.android.gmssystem.prodvic \
-    com.google.android.permission \
-    com.google.android.tethering \
-    com.google.android.webapp \
-    com.google.android.wifi
-
-PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
-    product/apex/com.google.android.gmssystem.prodvic.apex
-
-# App overrides
-PRODUCT_PACKAGES += \
-    StatixLauncher \
-    StatixSystemUI \
-    StatixSettings \
-    WallpaperPickerGoogleRelease
-
-# BtHelper
-PRODUCT_PACKAGES += \
-    BtHelper
-
-# Camera
-PRODUCT_PACKAGES += \
-    Aperture
-
-# Google Pixel Launcher
-ifeq ($(INCLUDE_PIXEL_LAUNCHER),true)
-PRODUCT_PACKAGES += \
-    NexusLauncherRelease
-endif
-
-# Multiuser
-PRODUCT_PACKAGES += \
-    Multiuser
-
-# Quick Tap
-PRODUCT_PACKAGES += \
-    ColumbusService
-
-# Updaters
-ifeq ($(PENGUIN_BUILD_TYPE),OFFICIAL)
-PRODUCT_PACKAGES += \
-    Updater
-endif
 
 # Some useful shell based utilities for Android
 PRODUCT_PACKAGES += \
@@ -85,5 +27,3 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     charger_res_images \
     charger_res_images_vendor_pixel
-
--include vendor/penguin/config/overlay.mk

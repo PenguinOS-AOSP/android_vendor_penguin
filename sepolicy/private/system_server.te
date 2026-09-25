@@ -1,0 +1,53 @@
+# DC Dimming
+allow system_server vendor_sysfs_dc_dim:file rw_file_perms;
+add_service(system_server, dc_dimming_service);
+
+# Pocket Judge
+allow system_server pocket_judge_sysfs:dir search;
+allow system_server pocket_judge_sysfs:file rw_file_perms;
+allow system_server pocket_service:service_manager { add find };
+
+# Set tethering properties
+set_prop(system_server, device_config_tethering_prop)
+
+# Powershare
+hal_client_domain(system_server, hal_aospa_powershare)
+
+# Lineage
+hal_client_domain(system_server, hal_lineage_health)
+
+# CachedAppOptimizer
+allow system_server zygote_tmpfs:file rw_file_perms;
+
+# PIH
+add_service(system_server, pih_manager_service);
+
+# Game space
+add_service(system_server, game_space_service);
+
+# Obscura
+add_service(system_server, obscura_service);
+
+# PowerInsight
+add_service(system_server, power_insight_service);
+allow system_server sysfs_batteryinfo:dir r_dir_perms;
+allow system_server sysfs_batteryinfo:file r_file_perms;
+
+# Freeform
+add_service(system_server, lmo_freeform_service);
+
+# Refresh Rate Manager
+add_service(system_server, refresh_rate_manager_service);
+
+# Linearmotor Vibrator
+add_service(system_server, linearmotor_vibrator_service);
+
+
+
+
+
+
+# Keystore compatibility
+allow system_server keystore_compat_data_file:dir create_dir_perms;
+allow system_server keystore_compat_data_file:file create_file_perms;
+get_prop(system_server, keystore_compat_prop)

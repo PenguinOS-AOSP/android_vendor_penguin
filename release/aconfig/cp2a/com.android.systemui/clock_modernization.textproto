@@ -1,6 +1,0 @@
-flag_value {
-  package: "com.android.systemui"
-  name: "clock_modernization"
-  state: DISABLED
-  permission: READ_ONLY
-}

@@ -8,28 +8,51 @@
 BUILD_DATE := $(shell date +%Y%m%d)
 
 ## Versioning System
-# Set all versions
-PENGUIN_BASE_VERSION := v10.0
+# PenguinOS major version flavor. Only changes per major Android release.
+PENGUIN_MAJOR_VERSION := celerity
 PENGUIN_PLATFORM_VERSION := $(PLATFORM_VERSION)
 
+ifdef PENGUIN_BUILDVERSION
+    PENGUIN_MINOR_VERSION := $(PENGUIN_BUILDVERSION)
+endif
+
+# Build type: UNOFFICIAL (default), ALPHA, BETA, OFFICIAL or STABLE
 ifndef PENGUIN_BUILD_TYPE
     PENGUIN_BUILD_TYPE := UNOFFICIAL
 endif
+PENGUIN_BUILD_VARIANT := $(shell echo $(PENGUIN_BUILD_TYPE) | tr '[:upper:]' '[:lower:]')
 
-PENGUIN_VERSION := $(TARGET_PRODUCT)-$(BUILD_DATE)-$(PENGUIN_PLATFORM_VERSION)-$(PENGUIN_BASE_VERSION)-$(PENGUIN_BUILD_TYPE)
+# Display version, e.g. "Celerity-Unofficial" or "Celerity-<minor>" for stable builds
+ifeq ($(filter stable,$(PENGUIN_BUILD_VARIANT)),)
+    PENGUIN_DISPLAY_VERSION := $(shell V1=$(PENGUIN_MAJOR_VERSION); V2=$(PENGUIN_BUILD_VARIANT); echo -n $${V1^}-$${V2^})
+else
+    PENGUIN_DISPLAY_VERSION := $(shell V1=$(PENGUIN_MAJOR_VERSION); echo -n $${V1^})-$(PENGUIN_MINOR_VERSION)
+endif
+
+PENGUIN_DEVICE := $(patsubst penguin_%,%,$(TARGET_PRODUCT))
+PENGUIN_VERSION := PenguinOS-$(PENGUIN_MAJOR_VERSION)-$(BUILD_DATE)-$(PENGUIN_DEVICE)-$(PENGUIN_BUILD_TYPE)
 
 # Fingerprint
 ROM_FINGERPRINT := PenguinOS/$(PLATFORM_VERSION)/$(PENGUIN_BUILD_TYPE)/$(BUILD_DATE)
-# Declare it's a StatiX build
+# Declare it's a Penguin build
 PENGUIN_BUILD := true
 
-# StatiXOS version properties
+# PenguinOS version properties
 PRODUCT_SYSTEM_PROPERTIES += \
-    ro.penguin.version=$(PENGUIN_BASE_VERSION)-$(PENGUIN_BUILD_TYPE)-$(BUILD_DATE) \
-    ro.penguin.base.version=$(PENGUIN_BASE_VERSION) \
-    ro.mod.version=$(BUILD_ID)-$(BUILD_DATE)-$(PENGUIN_BASE_VERSION) \
+    ro.penguin.version=$(PENGUIN_MAJOR_VERSION)-$(PENGUIN_BUILD_TYPE)-$(BUILD_DATE) \
+    ro.penguin.version.major=$(PENGUIN_MAJOR_VERSION) \
+    ro.penguin.version.minor=$(PENGUIN_MINOR_VERSION) \
+    ro.penguin.build.variant=$(PENGUIN_BUILD_VARIANT) \
+    ro.mod.version=$(BUILD_ID)-$(BUILD_DATE)-$(PENGUIN_MAJOR_VERSION) \
     ro.penguin.fingerprint=$(ROM_FINGERPRINT) \
     ro.penguin.buildtype=$(PENGUIN_BUILD_TYPE)
+
+# Compatibility properties read by PenguinOS/AOSPA apps (Updater, Settings)
+PRODUCT_SYSTEM_PROPERTIES += \
+    ro.aospa.version=$(PENGUIN_DISPLAY_VERSION) \
+    ro.aospa.version.major=$(PENGUIN_MAJOR_VERSION) \
+    ro.aospa.version.minor=$(PENGUIN_MINOR_VERSION) \
+    ro.aospa.build.variant=$(PENGUIN_BUILD_VARIANT)
 
 ## Signing
 ifneq (eng,$(TARGET_BUILD_VARIANT))

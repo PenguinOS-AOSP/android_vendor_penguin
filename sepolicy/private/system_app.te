@@ -1,0 +1,18 @@
+# Allow GameSpace to set process group
+allow system_app cgroup:dir search;
+allow system_app cgroup:file rw_file_perms;
+
+# Obscura
+allow system_app obscura_service:service_manager find;
+
+# PowerInsight
+allow system_app power_insight_service:service_manager find;
+
+
+
+# Keystore compatibility
+allow system_app keystore_compat_data_file:dir create_dir_perms;
+allow system_app keystore_compat_data_file:file create_file_perms;
+
+# Play Integrity Fix toggle
+set_prop(system_app, pih_disable_prop)

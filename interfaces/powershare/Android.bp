@@ -1,0 +1,34 @@
+//
+// SPDX-FileCopyrightText: Paranoid Android
+// SPDX-License-Identifier: Apache-2.0
+//
+
+aidl_interface {
+    name: "vendor.aospa.powershare",
+    vendor_available: true,
+    srcs: ["vendor/penguin/powershare/*.aidl"],
+    stability: "vintf",
+    owner: "aospa",
+    backend: {
+        cpp: {
+            // prefer NDK backend which can be used anywhere
+            enabled: true,
+        },
+        java: {
+            sdk_version: "module_current",
+        },
+        ndk: {
+            enabled: true,
+        },
+        rust: {
+            enabled: false,
+        },
+    },
+    versions_with_info: [
+        {
+            version: "1",
+            imports: [],
+        },
+    ],
+
+}

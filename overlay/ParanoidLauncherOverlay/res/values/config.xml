@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: Paranoid Android
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+
+    <!-- Default Packages -->
+    <string name="wallpaper_picker_package" translatable="false">com.android.wallpaper</string>
+
+    <!-- config used to determine if header protection is supported in AllApps -->
+    <bool name="config_header_protection_supported">true</bool>
+
+</resources>

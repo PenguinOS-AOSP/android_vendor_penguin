@@ -1,0 +1,4 @@
+get_prop(appdomain, pih_disable_prop)
+
+# Keystore compatibility
+get_prop(appdomain, keystore_compat_prop)

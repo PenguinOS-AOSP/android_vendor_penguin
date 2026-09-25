@@ -1,0 +1,32 @@
+
+java_import {
+    name: "onnxruntime-android",
+    jars: ["onnxruntime-android.jar"],
+    sdk_version: "current",
+}
+
+cc_prebuilt_library_shared {
+    name: "libonnxruntime4j_jni",
+    arch: {
+        arm64: {
+            srcs: ["libonnxruntime4j_jni.so"],
+        },
+    },
+    check_elf_files: false,
+    strip: {
+        none: true,
+    },
+}
+
+cc_prebuilt_library_shared {
+    name: "libonnxruntime",
+    arch: {
+        arm64: {
+            srcs: ["libonnxruntime.so"],
+        },
+    },
+    check_elf_files: false,
+    strip: {
+        none: true,
+    },
+}
