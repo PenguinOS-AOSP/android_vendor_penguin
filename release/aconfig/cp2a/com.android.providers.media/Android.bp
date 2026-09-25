@@ -15,7 +15,7 @@
 //
 
 aconfig_values {
-    name: "aconfig-values-aospa-cp2a-com.android.providers.media-all",
+    name: "aconfig-values-penguin-cp2a-com.android.providers.media-all",
     package: "com.android.providers.media.flags",
     srcs: [
         "*.textproto",
