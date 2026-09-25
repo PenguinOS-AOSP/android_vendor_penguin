@@ -2,6 +2,7 @@ SOONG_CONFIG_NAMESPACES += statixGlobalVars
 SOONG_CONFIG_statixGlobalVars += \
     additional_gralloc_10_usage_bits \
     bootloader_message_offset \
+    powershare_node \
     target_health_charging_control_charging_path \
     target_health_charging_control_charging_enabled \
     target_health_charging_control_charging_disabled \
@@ -79,3 +80,4 @@ SOONG_CONFIG_statixQcomVars_qti_vibrator_effect_lib := $(TARGET_QTI_VIBRATOR_EFF
 ifneq ($(TARGET_USE_QTI_BT_STACK),true)
 PRODUCT_SOONG_NAMESPACES += packages/apps/Bluetooth
 endif #TARGET_USE_QTI_BT_STACK
+SOONG_CONFIG_statixGlobalVars_powershare_node := $(TARGET_POWERSHARE_NODE)
