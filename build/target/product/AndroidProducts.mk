@@ -15,13 +15,13 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/statix_arm.mk \
-    $(LOCAL_DIR)/statix_arm64.mk \
-    $(LOCAL_DIR)/statix_x86.mk \
-    $(LOCAL_DIR)/statix_x86_64.mk
+    $(LOCAL_DIR)/penguin_arm.mk \
+    $(LOCAL_DIR)/penguin_arm64.mk \
+    $(LOCAL_DIR)/penguin_x86.mk \
+    $(LOCAL_DIR)/penguin_x86_64.mk
 
 COMMON_LUNCH_CHOICES := \
-    statix_arm-userdebug \
-    statix_arm64-userdebug \
-    statix_x86-userdebug \
-    statix_x86_64-userdebug
+    penguin_arm-userdebug \
+    penguin_arm64-userdebug \
+    penguin_x86-userdebug \
+    penguin_x86_64-userdebug

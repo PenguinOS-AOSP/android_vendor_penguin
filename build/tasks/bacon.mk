@@ -14,14 +14,14 @@
 # limitations under the License.
 
 # -----------------------------------------------------------------
-# StatiX OTA update package
+# Penguin OTA update package
 
-STATIX_TARGET_PACKAGE := $(PRODUCT_OUT)/$(STATIX_VERSION).zip
+PENGUIN_TARGET_PACKAGE := $(PRODUCT_OUT)/$(PENGUIN_VERSION).zip
 
 .PHONY: bacon
 bacon: $(INTERNAL_OTA_PACKAGE_TARGET)
-	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(STATIX_TARGET_PACKAGE)
-#	$(hide) $(MD5SUM) $(STATIX_TARGET_PACKAGE) | sed "s|$(PRODUCT_OUT)/||" > $(STATIX_TARGET_PACKAGE).md5sum
+	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(PENGUIN_TARGET_PACKAGE)
+#	$(hide) $(MD5SUM) $(PENGUIN_TARGET_PACKAGE) | sed "s|$(PRODUCT_OUT)/||" > $(PENGUIN_TARGET_PACKAGE).md5sum
 	@echo " "
 	@echo " "
 	@echo "                                                              :             "
@@ -40,5 +40,5 @@ bacon: $(INTERNAL_OTA_PACKAGE_TARGET)
 	@echo " ,.              : ###,      L#,      #:   ,;.                     ,        "
 	@echo " "
 	@echo " "
-	@echo "Package Complete: $(STATIX_TARGET_PACKAGE)" >&2
-	@echo "Package size: `du -h $(STATIX_TARGET_PACKAGE) | cut -f 1`"
+	@echo "Package Complete: $(PENGUIN_TARGET_PACKAGE)" >&2
+	@echo "Package size: `du -h $(PENGUIN_TARGET_PACKAGE) | cut -f 1`"

@@ -13,8 +13,8 @@
 # limitations under the License.
 
 $(call inherit-product, build/target/product/gsi_release.mk)
-$(call inherit-product, vendor/statix/config/common.mk)
-$(call inherit-product, vendor/statix/config/gsm.mk)
+$(call inherit-product, vendor/penguin/config/common.mk)
+$(call inherit-product, vendor/penguin/config/gsm.mk)
 
 PRODUCT_COPY_FILES += \
     device/generic/goldfish/data/etc/permissions/privapp-permissions-goldfish.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-goldfish.xml \

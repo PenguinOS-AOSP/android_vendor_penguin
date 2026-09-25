@@ -1,5 +1,5 @@
 license {
-    name: "vendor_statix_license",
+    name: "vendor_penguin_license",
     visibility: [":__subpackages__"],
     license_kinds: [
         "SPDX-license-identifier-Apache-2.0",

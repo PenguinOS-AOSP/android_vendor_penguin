@@ -13,17 +13,17 @@
 # limitations under the License.
 
 # -----------------------------------------------------------------
-# StatiX DSU package
+# Penguin DSU package
 
-GSI_TARGETS := statix_arm64 statix_arm statix_x86 statix_x86_64
+GSI_TARGETS := penguin_arm64 penguin_arm penguin_x86 penguin_x86_64
 
 ifneq ($(filter $(TARGET_PRODUCT),$(GSI_TARGETS)),)
 
-STATIX_TARGET_PACKAGE := $(PRODUCT_OUT)/$(STATIX_VERSION)-dsu.zip
+PENGUIN_TARGET_PACKAGE := $(PRODUCT_OUT)/$(PENGUIN_VERSION)-dsu.zip
 
 .PHONY: dsu_package
 dsu_package: $(INSTALLED_SYSTEMIMAGE_TARGET) $(INSTALLED_VBMETAIMAGE_TARGET) $(SOONG_ZIP)
-	$(hide) cd $(PRODUCT_OUT) && $(SOONG_ZIP) -o $(STATIX_TARGET_PACKAGE) -f system.img -f vbmeta.img
+	$(hide) cd $(PRODUCT_OUT) && $(SOONG_ZIP) -o $(PENGUIN_TARGET_PACKAGE) -f system.img -f vbmeta.img
 	@echo " "
 	@echo " "
 	@echo "                                                              :             "
@@ -42,7 +42,7 @@ dsu_package: $(INSTALLED_SYSTEMIMAGE_TARGET) $(INSTALLED_VBMETAIMAGE_TARGET) $(S
 	@echo " ,.              : ###,      L#,      #:   ,;.                     ,        "
 	@echo " "
 	@echo " "
-	@echo "Package Complete: $(STATIX_TARGET_PACKAGE)" >&2
-	@echo "Package size: `du -h $(STATIX_TARGET_PACKAGE) | cut -f 1`"
+	@echo "Package Complete: $(PENGUIN_TARGET_PACKAGE)" >&2
+	@echo "Package size: `du -h $(PENGUIN_TARGET_PACKAGE) | cut -f 1`"
 
 endif

@@ -11,9 +11,9 @@ EOF
 function breakfast()
 {
     target=$1
-    STATIX_DEVICES_ONLY="true"
+    PENGUIN_DEVICES_ONLY="true"
     unset LUNCH_MENU_CHOICES
-    for f in `/bin/ls vendor/statix/vendorsetup.sh 2> /dev/null`
+    for f in `/bin/ls vendor/penguin/vendorsetup.sh 2> /dev/null`
         do
             echo "including $f"
             . $f
@@ -30,8 +30,8 @@ function breakfast()
             # A buildtype was specified, assume a full device name
             lunch $target
         else
-            # This is probably just the StatiX model name
-            lunch statix_$target-userdebug
+            # This is probably just the Penguin model name
+            lunch penguin_$target-userdebug
         fi
     fi
     return $?
@@ -62,7 +62,7 @@ function cout()
 
 function repopick() {
     T=$(gettop)
-    $T/vendor/statix/build/tools/repopick.py $@
+    $T/vendor/penguin/build/tools/repopick.py $@
 }
 
 function sort-blobs-list() {
@@ -74,5 +74,5 @@ function aospmerge()
 {
     target_branch=$1
     T=$(gettop)
-    python3 $T/vendor/statix/scripts/merge-aosp.py $target_branch
+    python3 $T/vendor/penguin/scripts/merge-aosp.py $target_branch
 }

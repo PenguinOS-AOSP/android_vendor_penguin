@@ -14,8 +14,8 @@
 
 $(call inherit-product, build/target/product/aosp_x86.mk)
 
-include vendor/statix/build/target/product/statix_generic_target.mk
+include vendor/penguin/build/target/product/penguin_generic_target.mk
 
 TARGET_USES_64_BIT_BINDER := true
 
-PRODUCT_NAME := statix_x86
+PRODUCT_NAME := penguin_x86

@@ -8,7 +8,7 @@ RESET='\033[0m'
 if [ -z "${WELCOME_SHOWN}" ]; then
 
     # Welcome message
-    echo -e "Welcome to ${YELLOW}StatiX!${RESET}"
+    echo -e "Welcome to ${YELLOW}PenguinOS!${RESET}"
 
     # Additional instructions
     echo -e "\nHere are some things before you get started!\n"
@@ -29,7 +29,7 @@ if [ -z "${WELCOME_SHOWN}" ]; then
     export WELCOME_SHOWN=true
 
 else
-    echo -e "Welcome to ${YELLOW}StatiX!${RESET}"
+    echo -e "Welcome to ${YELLOW}PenguinOS!${RESET}"
     echo -e "Environment ready."
 fi
 

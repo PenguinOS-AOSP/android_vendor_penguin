@@ -12,7 +12,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += libtensorflowlite_jni
 // PRODUCT_PACKAGES += libtensorflowlite_jni_gms_client
 
-# StatiX Packages
+# Penguin Packages
 PRODUCT_PACKAGES += \
     StatiXOSWalls \
     QuickAccessWallet
@@ -24,8 +24,8 @@ PRODUCT_PACKAGES += \
 # APEX
 DISABLE_DEXPREOPT_CHECK := true
 
-PRODUCT_MAINLINE_BLUETOOTH_SEPOLICY_DEV_CERTIFICATES=vendor/statix/build/target/product/security
-PRODUCT_MAINLINE_NFC_SEPOLICY_DEV_CERTIFICATES=vendor/statix/build/target/product/security
+PRODUCT_MAINLINE_BLUETOOTH_SEPOLICY_DEV_CERTIFICATES=vendor/penguin/build/target/product/security
+PRODUCT_MAINLINE_NFC_SEPOLICY_DEV_CERTIFICATES=vendor/penguin/build/target/product/security
 
 PRODUCT_MAINLINE_SEPOLICY_DEV_CERTIFICATES=vendor/statix-prebuilts/apex/certificates
 
@@ -70,7 +70,7 @@ PRODUCT_PACKAGES += \
     ColumbusService
 
 # Updaters
-ifeq ($(STATIX_BUILD_TYPE),OFFICIAL)
+ifeq ($(PENGUIN_BUILD_TYPE),OFFICIAL)
 PRODUCT_PACKAGES += \
     Updater
 endif
@@ -86,4 +86,4 @@ PRODUCT_PACKAGES += \
     charger_res_images \
     charger_res_images_vendor_pixel
 
--include vendor/statix/config/overlay.mk
+-include vendor/penguin/config/overlay.mk

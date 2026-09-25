@@ -3,8 +3,8 @@ kernel_headers {
 }
 
 bootstrap_go_package {
-    name: "soong-statix-mkdir",
-    pkgPath: "statix/soong/mkdir",
+    name: "soong-penguin-mkdir",
+    pkgPath: "penguin/soong/mkdir",
     deps: [
         "blueprint",
         "blueprint-pathtools",

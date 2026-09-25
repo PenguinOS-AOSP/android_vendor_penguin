@@ -14,6 +14,6 @@
 
 $(call inherit-product, build/target/product/aosp_arm64.mk)
 
-include vendor/statix/build/target/product/statix_generic_target.mk
+include vendor/penguin/build/target/product/penguin_generic_target.mk
 
-PRODUCT_NAME := statix_arm64
+PRODUCT_NAME := penguin_arm64

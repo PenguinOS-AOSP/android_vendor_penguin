@@ -14,14 +14,14 @@
 # limitations under the License.
 
 # -----------------------------------------------------------------
-# StatiX fastboot update package
+# Penguin fastboot update package
 
-STATIX_TARGET_UPDATEPACKAGE := $(PRODUCT_OUT)/$(STATIX_VERSION)-img.zip
+PENGUIN_TARGET_UPDATEPACKAGE := $(PRODUCT_OUT)/$(PENGUIN_VERSION)-img.zip
 
 .PHONY: updatepackage
 updatepackage: $(INTERNAL_UPDATE_PACKAGE_TARGET)
-	$(hide) ln -f $(INTERNAL_UPDATE_PACKAGE_TARGET) $(STATIX_TARGET_UPDATEPACKAGE)
-#	$(hide) $(MD5SUM) $(STATIX_TARGET_UPDATEPACKAGE) | sed "s|$(PRODUCT_OUT)/||" > $(STATIX_TARGET_UPDATEPACKAGE).md5sum
+	$(hide) ln -f $(INTERNAL_UPDATE_PACKAGE_TARGET) $(PENGUIN_TARGET_UPDATEPACKAGE)
+#	$(hide) $(MD5SUM) $(PENGUIN_TARGET_UPDATEPACKAGE) | sed "s|$(PRODUCT_OUT)/||" > $(PENGUIN_TARGET_UPDATEPACKAGE).md5sum
 	@echo " "
 	@echo " "
 	@echo "                                                              :             "
@@ -40,5 +40,5 @@ updatepackage: $(INTERNAL_UPDATE_PACKAGE_TARGET)
 	@echo " ,.              : ###,      L#,      #:   ,;.                     ,        "
 	@echo " "
 	@echo " "
-	@echo "Package Complete: $(STATIX_TARGET_UPDATEPACKAGE)" >&2
-	@echo "Package size: `du -h $(STATIX_TARGET_UPDATEPACKAGE) | cut -f 1`"
+	@echo "Package Complete: $(PENGUIN_TARGET_UPDATEPACKAGE)" >&2
+	@echo "Package size: `du -h $(PENGUIN_TARGET_UPDATEPACKAGE) | cut -f 1`"

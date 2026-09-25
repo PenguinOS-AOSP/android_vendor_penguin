@@ -9,32 +9,32 @@ BUILD_DATE := $(shell date +%Y%m%d)
 
 ## Versioning System
 # Set all versions
-STATIX_BASE_VERSION := v10.0
-STATIX_PLATFORM_VERSION := $(PLATFORM_VERSION)
+PENGUIN_BASE_VERSION := v10.0
+PENGUIN_PLATFORM_VERSION := $(PLATFORM_VERSION)
 
-ifndef STATIX_BUILD_TYPE
-    STATIX_BUILD_TYPE := UNOFFICIAL
+ifndef PENGUIN_BUILD_TYPE
+    PENGUIN_BUILD_TYPE := UNOFFICIAL
 endif
 
-STATIX_VERSION := $(TARGET_PRODUCT)-$(BUILD_DATE)-$(STATIX_PLATFORM_VERSION)-$(STATIX_BASE_VERSION)-$(STATIX_BUILD_TYPE)
+PENGUIN_VERSION := $(TARGET_PRODUCT)-$(BUILD_DATE)-$(PENGUIN_PLATFORM_VERSION)-$(PENGUIN_BASE_VERSION)-$(PENGUIN_BUILD_TYPE)
 
 # Fingerprint
-ROM_FINGERPRINT := StatiXOS/$(PLATFORM_VERSION)/$(STATIX_BUILD_TYPE)/$(BUILD_DATE)
+ROM_FINGERPRINT := PenguinOS/$(PLATFORM_VERSION)/$(PENGUIN_BUILD_TYPE)/$(BUILD_DATE)
 # Declare it's a StatiX build
-STATIX_BUILD := true
+PENGUIN_BUILD := true
 
 # StatiXOS version properties
 PRODUCT_SYSTEM_PROPERTIES += \
-    ro.statix.version=$(STATIX_BASE_VERSION)-$(STATIX_BUILD_TYPE)-$(BUILD_DATE) \
-    ro.statix.base.version=$(STATIX_BASE_VERSION) \
-    ro.mod.version=$(BUILD_ID)-$(BUILD_DATE)-$(STATIX_BASE_VERSION) \
-    ro.statix.fingerprint=$(ROM_FINGERPRINT) \
-    ro.statix.buildtype=$(STATIX_BUILD_TYPE)
+    ro.penguin.version=$(PENGUIN_BASE_VERSION)-$(PENGUIN_BUILD_TYPE)-$(BUILD_DATE) \
+    ro.penguin.base.version=$(PENGUIN_BASE_VERSION) \
+    ro.mod.version=$(BUILD_ID)-$(BUILD_DATE)-$(PENGUIN_BASE_VERSION) \
+    ro.penguin.fingerprint=$(ROM_FINGERPRINT) \
+    ro.penguin.buildtype=$(PENGUIN_BUILD_TYPE)
 
 ## Signing
 ifneq (eng,$(TARGET_BUILD_VARIANT))
     # Define security directory
-    PROD_CERTS := vendor/statix/build/target/product/security
+    PROD_CERTS := vendor/penguin/build/target/product/security
 
     # Display a cleaner build number even on userdebug builds
     ifeq (userdebug,$(TARGET_BUILD_VARIANT))
