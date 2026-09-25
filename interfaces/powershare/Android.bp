@@ -6,7 +6,7 @@
 aidl_interface {
     name: "vendor.aospa.powershare",
     vendor_available: true,
-    srcs: ["vendor/penguin/powershare/*.aidl"],
+    srcs: ["vendor/aospa/powershare/*.aidl"],
     stability: "vintf",
     owner: "aospa",
     backend: {

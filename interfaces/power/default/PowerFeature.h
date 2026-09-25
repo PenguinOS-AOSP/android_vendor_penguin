@@ -5,7 +5,7 @@
 
 #pragma once
 
-#include <aidl/vendor/penguin/power/BnPowerFeature.h>
+#include <aidl/vendor/aospa/power/BnPowerFeature.h>
 #include <linux/input.h>
 
 namespace aidl {

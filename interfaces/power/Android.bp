@@ -7,7 +7,7 @@ aidl_interface {
     name: "vendor.aospa.power",
     vendor_available: true,
     srcs: [
-        "vendor/penguin/power/*.aidl",
+        "vendor/aospa/power/*.aidl",
     ],
     stability: "vintf",
     backend: {
