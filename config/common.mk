@@ -78,6 +78,9 @@ include vendor/penguin/config/branding.mk
 # PenguinOS product configuration
 include vendor/penguin/config/penguin.mk
 
+# Private signing keys (vendor/lineage-priv/keys, generated with gen_keys.py)
+-include vendor/lineage-priv/keys/keys.mk
+
 # Artifact path requirements
 PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
     system/etc/pvmfw.bin \

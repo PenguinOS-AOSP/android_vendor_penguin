@@ -58,6 +58,9 @@ PRODUCT_SYSTEM_PROPERTIES += \
 ifneq (eng,$(TARGET_BUILD_VARIANT))
     # Define security directory
     PROD_CERTS := vendor/penguin/build/target/product/security
+    ifneq ($(wildcard vendor/lineage-priv/keys/releasekey.pk8),)
+        PROD_CERTS := vendor/lineage-priv/keys
+    endif
 
     # Display a cleaner build number even on userdebug builds
     ifeq (userdebug,$(TARGET_BUILD_VARIANT))
