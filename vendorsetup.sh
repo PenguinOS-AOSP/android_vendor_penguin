@@ -30,3 +30,6 @@ export BUILD_HOSTNAME=android-build
 
 # Override build number
 export BUILD_NUMBER=$(date +%y%m%d%S)
+
+# Skip header ABI checks (custom ROMs change library ABIs)
+export SKIP_ABI_CHECKS=true
